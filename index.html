@@ -196,7 +196,7 @@
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
       ctx = canvas.getContext('2d')
-      ctx.strokeStyle = 'rgba(255,255,255,0.25)'
+      ctx.strokeStyle = 'rgba(255,255,255,0.2)'
       ctx.lineWidth = 2
     }
     resizeCanvas()
@@ -227,7 +227,7 @@
         }
       })
       rainCooldown += deltaTime
-      if (rainCooldown > 320) {
+      if (rainCooldown > 320 * (800 / canvas.width)) {
         rains.push({
           x: random(0, canvas.width),
           y: 0,
