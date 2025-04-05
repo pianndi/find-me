@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selamat datang di daftar tautan saya - Pianndi</title>
+  <title>Selamat datang di daftar tautan Pianndi</title>
   <meta name="description" content="Selamat datang di daftar tautan saya. Saya adalah seorang fullstack web developer.">
   <meta name="keywords"
     content="pianndi, piandi, fullstack, web developer, daftar tautan, linktree, tiktok, instagram, youtube, github">
@@ -16,18 +16,19 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://pianndi.github.io/links" />
-  <meta property="og:title" content="Selamat datang di daftar tautan saya - Pianndi" />
+  <meta property="og:title" content="Selamat datang di daftar tautan Pianndi" />
   <meta property="og:description"
     content="Selamat datang di daftar tautan saya. Saya adalah seorang fullstack web developer." />
   <meta property="og:image" content="https://pianndi.github.io/links/meta-image.webp" />
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://pianndi.github.io/links" />
-  <meta property="twitter:title" content="Selamat datang di daftar tautan saya - Pianndi" />
+  <meta property="twitter:title" content="Selamat datang di daftar tautan Pianndi" />
   <meta property="twitter:description"
     content="Selamat datang di daftar tautan saya. Saya adalah seorang fullstack web developer." />
   <meta property="twitter:image" content="https://pianndi.github.io/links/meta-image.webp" />
   <!-- libs -->
+  <script src="powerglitch.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -78,7 +79,7 @@
           </div>
         </div>
         <h3 class="font-bold text-2xl">Pianndi</h3>
-        <p>Saya adalah fullstack web developer</p>
+        <p>Fullstack Web Developer & Video Editor </p>
       </div>
       <ul class="pt-6 flex gap-4 justify-center items-center">
         <li class="flex flex-col items-center gap-1">
@@ -116,15 +117,15 @@
   <!--  -->
   <div class="container relative max-w-lg mx-auto flex flex-col items-center py-12 gap-6 text-center">
     <div class="flex flex-col gap-2 items-center">
-      <div class="avatar">
+      <label for="share" class="avatar cursor-pointer" id="profile">
         <div class="w-28 rounded-full">
           <img src="https://avatars.githubusercontent.com/u/119086276?v=4" alt="Pianndi Profile Picture"
             class="rounded">
         </div>
-      </div>
+      </label>
       <div>
         <h1 class="font-bold text-2xl">Piandi</h1>
-        <p>Saya adalah fullstack web developer</p>
+        <p>Fullstack Web Developer & Video Editor </p>
       </div>
     </div>
     <ul class="flex gap-4 flex-wrap justify-center px-4" id="socials">
@@ -184,6 +185,11 @@
 
   </div>
   <script>
+    const light = {
+      x: null,
+      y: null,
+      size: 300
+    }
     const rains = [
       {
         x: 200,
@@ -218,7 +224,7 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       rains.forEach((rain, i) => {
         ctx.beginPath()
-        rain.y++
+        rain.y += 1 * (deltaTime / 20)
         ctx.moveTo(rain.x, rain.y)
         ctx.lineTo(rain.x, rain.y - rain.size)
         ctx.stroke()
@@ -235,9 +241,28 @@
         })
         rainCooldown = 0
       }
+      if (light.x !== null || light.y !== null) {
+        ctx.save()
+        ctx.globalCompositeOperation = 'lighter';
+        const gradient = ctx.createRadialGradient(light.x, light.y, 0, light.x, light.y, light.size)
+        gradient.addColorStop(0, 'rgba(255,255,0,0.1)')
+        gradient.addColorStop(1, 'rgba(255,255,0,0)')
+        ctx.fillStyle = gradient
+        ctx.beginPath()
+        ctx.arc(light.x, light.y, light.size, 0, Math.PI * 2)
+        ctx.fill()
+        ctx.restore()
+
+      }
       requestAnimationFrame(draw)
     }
     draw()
+    window.addEventListener('mousemove', (e) => {
+      const x = e.clientX
+      const y = e.clientY
+      light.x = x
+      light.y = y
+    })
     document.querySelectorAll('#socials a,.btn:has(.hidden)').forEach(el => {
       tippy(el, {
         content: el.querySelector('.hidden').innerText,
@@ -315,6 +340,21 @@
           console.log('Berhasil dibagikan!')
         })
     }
+    function changePicture() {
+      PowerGlitch.glitch('#profile', {
+        playMode: 'manual',
+        timing: {
+          duration: random(500, 1000)
+        }
+
+      }).startGlitch()
+      let gambar = 'https://avatars.githubusercontent.com/u/119086276?v=4'
+      let gambarEl = document.querySelector('#profile img')
+      gambarEl.src = gambar == gambarEl.src ? 'badut.png' : gambar
+      setTimeout(changePicture, random(4000, 7000))
+
+    }
+    setTimeout(changePicture, random(4000, 7000))
   </script>
 </body>
 
