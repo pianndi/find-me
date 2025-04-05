@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat datang di daftar tautan saya - Pianndi</title>
+  <meta name="description" content="Selamat datang di daftar tautan saya. Saya adalah seorang fullstack web developer.">
+  <meta name="keywords"
+    content="pianndi, piandi, fullstack, web developer, daftar tautan, linktree, tiktok, instagram, youtube, github">
+  <!-- seo -->
+  <link rel="canonical" href="https://pianndi.github.io/links/">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Pianndi">
+  <meta name="publisher" content="Pianndi">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pianndi.github.io/links" />
+  <meta property="og:title" content="Selamat datang di daftar tautan saya - Pianndi" />
+  <meta property="og:description"
+    content="Selamat datang di daftar tautan saya. Saya adalah seorang fullstack web developer." />
+  <meta property="og:image" content="meta-image.webp" />
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://pianndi.github.io/links" />
+  <meta property="twitter:title" content="S" />
+  <meta property="twitter:description"
+    content="Selamat datang di daftar tautan saya. Saya adalah seorang fullstack web developer." />
+  <meta property="twitter:image" content="meta-image.webp" />
+  <!-- libs -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script>
+  <style>
+    :root:has(input.theme-controller[value=mytheme]:checked),
+    [data-theme="dark"] {
+      /* mytheme is the name of the custom theme */
+      color-scheme: dark;
+      --color-base-100: rgb(0, 6, 39);
+      /* ...rest of CSS variables like above example */
+    }
+
+    .icon {
+      mask-size: 100%;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
+
+<body class="text-center">
+  <label for="share" class="fixed btn btn-lg btn-circle btn-ghost top-4 right-4"><i
+      class="fa-solid fa-arrow-up-from-bracket"></i><span class="hidden">Bagikan</span>
+  </label>
+  <!-- The button to open modal -->
+  <input type="checkbox" id="share" class="modal-toggle" />
+  <!-- Put this part before </body> tag -->
+  <div class="modal" role="dialog">
+    <div class="modal-box">
+      <div class="flex justify-between items-center">
+        <h2 class="text-lg font-bold">Bagikan</h2>
+        <label class="btn btn-ghost btn-circle" for="share"><i class="fa-solid fa-xmark"></i><span
+            class="hidden">Tutup</span></label>
+      </div>
+      <div class="card items-center justify-center card-body bg-red-800 shadow-xl mt-4">
+        <div class="avatar">
+          <div class="w-28 rounded-full">
+            <img src="https://avatars.githubusercontent.com/u/119086276?v=4" alt="Pianndi Profile Picture"
+              class="rounded">
+          </div>
+        </div>
+        <h3 class="font-bold text-2xl">Pianndi</h3>
+        <p>Saya adalah fullstack web developer</p>
+      </div>
+      <ul class="pt-6 flex gap-4 justify-center items-center">
+        <li class="flex flex-col items-center gap-1">
+          <button class="btn btn-lg btn-info btn-circle" id="copy_button" onclick="copy_link()">
+            <i class="fa-solid fa-link"></i>
+          </button>
+          <span class="text-sm">Salin Tautan</span>
+        </li>
+        <li class="flex flex-col items-center gap-1">
+          <a class="btn btn-lg btn-success btn-circle"
+            href="whatsapp://send?text=Buka tautan ini! https://pianndi.github.io/links"
+            data-action="share/whatsapp/share" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <span class="text-sm">WhatsApp</span>
+        </li>
+        <li class="flex flex-col items-center gap-1">
+          <a class="btn btn-lg btn-primary btn-circle"
+            href="https://www.facebook.com/sharer/sharer.php?u=https://pianndi.github.io/links" target="_blank">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <span class="text-sm">Facebook</span>
+        </li>
+        <li class="flex flex-col items-center gap-1" id="share_button">
+          <button class="btn btn-lg btn-secondary btn-circle" onclick="share_another()">
+            <i class="fa-solid fa-share-nodes"></i>
+          </button>
+          <span class="text-sm">Lainnya</span>
+        </li>
+
+      </ul>
+    </div>
+    <label class="modal-backdrop" for="share">Close</label>
+  </div>
+  <!--  -->
+  <div class="container relative max-w-lg mx-auto flex flex-col items-center py-12 gap-6 text-center">
+    <div class="flex flex-col gap-2 items-center">
+      <div class="avatar">
+        <div class="w-28 rounded-full">
+          <img src="https://avatars.githubusercontent.com/u/119086276?v=4" alt="Pianndi Profile Picture"
+            class="rounded">
+        </div>
+      </div>
+      <div>
+        <h1 class="font-bold text-2xl">Piandi</h1>
+        <p>Saya adalah fullstack web developer</p>
+      </div>
+    </div>
+    <ul class="flex gap-4 flex-wrap justify-center px-4" id="socials">
+      <li>
+        <a href="https://tiktok.com/@pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg">
+          <i class="fa-brands fa-tiktok"></i>
+          <span class="hidden">Piandi di Tiktok</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://instagram.com/pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg">
+          <i class="fa-brands fa-instagram"></i>
+          <span class="hidden">Piandi di Instagram</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://youtube.com/@pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg">
+          <i class="fa-brands fa-youtube"></i>
+          <span class="hidden">Piandi di Youtube</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg">
+          <i class="fa-brands fa-github"></i>
+          <span class="hidden">Piandi di Github</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://t.me/alphiandiwastaken" target="_blank" class="btn btn-circle btn-outline btn-lg">
+          <i class="fa-brands fa-telegram"></i>
+          <span class="hidden">Hubungi di Telegram</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="flex flex-col gap-4 w-full px-4">
+      <li>
+        <a class="btn btn-xl justify-between w-full bg-base-200 rounded-full" href="https://pianndi.github.io/"
+          target="_blank">
+          <i class="fa-solid fa-user text-sm"></i>
+          <span class="text-lg">Portofolio Saya</span>
+          <button class="btn btn-ghost btn-sm btn-circle">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+  <script>
+    document.querySelectorAll('#socials a,.btn:has(.hidden)').forEach(el => {
+      tippy(el, {
+        content: el.querySelector('.hidden').innerText,
+        theme: 'dark',
+        placement: 'top',
+        arrow: true,
+        delay: [0, 100],
+        duration: [200, 100],
+        animation: 'scale',
+        trigger: 'mouseenter focus',
+        onShow(instance) {
+          instance.setProps({ delay: [0, 0] })
+        },
+        onHide(instance) {
+          instance.setProps({ delay: [0, 100] })
+        }
+      })
+    })
+    function copy_link() {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          document.getElementById('copy_button').innerHTML = '<i class="fa-solid fa-check"></i>'
+          document.querySelector('#copy_button + span').innerText = 'Tautan disalin!'
+          setTimeout(() => {
+            document.getElementById('copy_button').innerHTML = '<i class="fa-solid fa-link"></i>'
+            document.querySelector('#copy_button + span').innerText = 'Salin Tautan'
+          }, 1000)
+        }).catch(err => {
+          Swal.fire({
+            toast: true,
+            icon: 'error',
+            position: 'top-end',
+            title: 'Gagal menyalin!',
+            showConfirmButton: false,
+            showCloseButton: true,
+            timer: 1500
+          })
+        })
+      } else {
+        const tempInput = document.createElement('input')
+        tempInput.value = window.location.href
+        document.body.appendChild(tempInput)
+        tempInput.select()
+        try {
+          document.execCommand('copy')
+          document.getElementById('copy_button').innerHTML = '<i class="fa-solid fa-check"></i>'
+          document.querySelector('#copy_button + span').innerText = 'Tautan disalin!'
+          setTimeout(() => {
+            document.getElementById('copy_button').innerHTML = '<i class="fa-solid fa-link"></i>'
+            document.querySelector('#copy_button + span').innerText = 'Salin Tautan'
+          }, 1000)
+        } catch (err) {
+          Swal.fire({
+            toast: true,
+            icon: 'error',
+            position: 'top-end',
+            title: 'Gagal menyalin!',
+            showConfirmButton: false,
+            showCloseButton: true,
+            timer: 1500
+          })
+        }
+        document.body.removeChild(tempInput)
+      }
+    }
+    if (!navigator?.share) {
+      document.getElementById('share_button').style.display = 'none'
+    }
+    function share_another() {
+      navigator.share({
+        title: document.title,
+        url: window.location.href
+      })
+        .then(() => {
+          console.log('Berhasil dibagikan!')
+        })
+        .catch(err => {
+          Swal.fire({
+            toast: true,
+            icon: 'error',
+            position: 'top-end',
+            title: 'Gagal membagikan!',
+            showConfirmButton: false,
+            showCloseButton: true,
+            timer: 1500
+          })
+        })
+    }
+  </script>
+</body>
+
+</html>
