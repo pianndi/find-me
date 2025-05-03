@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selamat datang di daftar tautan Pianndi</title>
+  <title>Selamat datang di daftar tautan Alviandi Siswo Hartanto - Piandi</title>
   <meta name="description" content="Selamat datang di daftar tautan saya. Saya adalah seorang fullstack web developer.">
   <meta name="keywords"
     content="pianndi, piandi, fullstack, web developer, daftar tautan, linktree, tiktok, instagram, youtube, github">
@@ -28,44 +28,26 @@
     content="Selamat datang di daftar tautan saya. Saya adalah seorang fullstack web developer." />
   <meta property="twitter:image" content="https://pianndi.github.io/links/meta-image.webp" />
   <!-- libs -->
-  <script src="powerglitch.min.js"></script>
+  <script src="./js/powerglitch.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://unpkg.com/@popperjs/core@2"></script>
   <script src="https://unpkg.com/tippy.js@6"></script>
-  <style>
-    :root:has(input.theme-controller[value=mytheme]:checked),
-    [data-theme="dark"] {
-      /* mytheme is the name of the custom theme */
-      color-scheme: dark;
-      --color-base-100: rgb(0, 6, 39);
-      /* ...rest of CSS variables like above example */
-    }
-
-    .icon {
-      mask-size: 100%;
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-      mask-position: center;
-      width: 24px;
-      height: 24px;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/output.css">
 </head>
 
 <body class="text-center">
   <canvas id="canvas" class="absolute -z-99"></canvas>
-  <label for="share" class="fixed btn btn-lg btn-circle btn-ghost bottom-6 right-6 z-99"><i
-      class="fa-solid fa-arrow-up-from-bracket"></i><span class="hidden">Bagikan</span>
+  <label for="share" class="fixed btn btn-lg btn-circle btn-neutral bottom-6 right-6 z-99"><i
+      class="fa-solid fa-share-nodes"></i><span class="hidden">Bagikan</span>
   </label>
   <!-- The button to open modal -->
   <input type="checkbox" id="share" class="modal-toggle" />
-  <!-- Put this part before </body> tag -->
-  <div class="modal" role="dialog">
+  <div class="modal" role="dialog" aria-hidden="false">
     <div class="modal-box">
       <div class="flex justify-between items-center">
         <h2 class="text-lg font-bold">Bagikan</h2>
@@ -74,11 +56,11 @@
       <div class="card items-center justify-center card-body bg-red-800 shadow-xl mt-4">
         <div class="avatar">
           <div class="w-28 rounded-full">
-            <img src="https://avatars.githubusercontent.com/u/119086276?v=4" alt="Pianndi Profile Picture"
-              class="rounded">
+            <img src="./images/alviandi-profile-picture.webp" loading="lazy"
+              alt="Alviandi Siswo Hartanto Profile Picture" class="rounded">
           </div>
         </div>
-        <h3 class="font-bold text-2xl">Pianndi</h3>
+        <h3 class="font-bold text-2xl">Piandi</h3>
         <p>Fullstack Web Developer & Video Editor </p>
       </div>
       <ul class="pt-6 flex gap-4 justify-center items-center">
@@ -114,47 +96,72 @@
     </div>
     <label class="modal-backdrop" for="share">Close</label>
   </div>
-  <!--  -->
+  <input type="checkbox" id="achievements-modal" class="modal-toggle" />
+  <div class="modal" role="dialog" aria-hidden="false">
+    <div class="modal-box">
+      <div class="flex justify-between items-center">
+        <h2 class="text-lg font-bold">Pencapaian Saya</h2>
+        <label class="btn btn-ghost btn-circle" for="achievements-modal"><i class="fa-solid fa-xmark"></i></label>
+      </div>
+      <div class="card items-center justify-center overflow-hidden bg-red-800 shadow-xl mt-4">
+        <img src="./images/juara-satu-lks-web-provinsi-jawa-tengah-2025.webp" loading="lazy"
+          alt="Juara 1 lks web provinsi jawa tengah 2025">
+      </div>
+      <ul class="list-disc list-inside mt-4 text-left">
+        <li>🥇 Juara 1 LKS Web Technologies Provinsi Jawa Tengah 2025</li>
+        <li>🥇 Juara 1 LKS Web Technologies Kabupaten Demak 2025</li>
+        <li>🥈 Juara 2 LKS Web Technologies Provinsi Jawa Tengah 2024</li>
+        <li>🥇 Juara 1 LKS Web Technologies Kabupaten Demak 2024</li>
+      </ul>
+    </div>
+    <label class="modal-backdrop" for="achievements-modal-toggle">Close</label>
+  </div>
   <div class="container relative max-w-lg mx-auto flex flex-col items-center py-12 gap-6 text-center">
     <div class="flex flex-col gap-2 items-center">
       <label for="share" class="avatar cursor-pointer" id="profile">
         <div class="w-28 rounded-full">
-          <img src="https://avatars.githubusercontent.com/u/119086276?v=4" alt="Pianndi Profile Picture"
+          <img src="./images/alviandi-profile-picture.webp" loading="lazy" alt="Alviandi Siswo Hartanto Profile Picture"
             class="rounded">
         </div>
       </label>
       <div>
-        <h1 class="font-bold text-2xl">Piandi</h1>
+        <h1 class="font-bold text-2xl"><span id="name">Alviandi Siswo Hartanto</span>&nbsp;<span
+            id="nickname">Piandi</span></h1>
         <p>Fullstack Web Developer & Video Editor </p>
       </div>
     </div>
     <ul class="flex gap-4 flex-wrap justify-center px-4" id="socials">
       <li>
-        <a href="https://tiktok.com/@pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg">
+        <a href="https://tiktok.com/@pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg"
+          title="Alviandi di Tiktok">
           <i class="fa-brands fa-tiktok"></i>
           <span class="hidden">Piandi di Tiktok</span>
         </a>
       </li>
       <li>
-        <a href="https://instagram.com/pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg">
+        <a href="https://instagram.com/pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg"
+          title="Alviandi di Instagram">
           <i class="fa-brands fa-instagram"></i>
           <span class="hidden">Piandi di Instagram</span>
         </a>
       </li>
       <li>
-        <a href="https://youtube.com/@pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg">
+        <a href="https://youtube.com/@pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg"
+          title="Alviandi di Youtube">
           <i class="fa-brands fa-youtube"></i>
           <span class="hidden">Piandi di Youtube</span>
         </a>
       </li>
       <li>
-        <a href="https://github.com/pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg">
+        <a href="https://github.com/pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg"
+          title="Piandi di Github">
           <i class="fa-brands fa-github"></i>
           <span class="hidden">Piandi di Github</span>
         </a>
       </li>
       <li>
-        <a href="https://t.me/alphiandiwastaken" target="_blank" class="btn btn-circle btn-outline btn-lg">
+        <a href="https://t.me/alphiandiwastaken" target="_blank" class="btn btn-circle btn-outline btn-lg"
+          title="Hubungi Alviandi">
           <i class="fa-brands fa-telegram"></i>
           <span class="hidden">Hubungi di Telegram</span>
         </a>
@@ -166,196 +173,54 @@
           target="_blank" data-theme="light">
           <i class="fa-solid fa-user"></i>
           <span class="text-lg">Portofolio Saya</span>
-          <button class="btn btn-ghost btn-sm btn-circle">
+          <!-- <button class="btn btn-ghost btn-sm btn-circle">
             <i class="fa-solid fa-ellipsis-vertical"></i>
-          </button>
+          </button> -->
+          <span></span>
         </a>
+      </li>
+      <li>
+        <label for="achievements-modal" class="btn btn-xl justify-between w-full bg-base-200 rounded-full"
+          target="_blank" data-theme="light">
+          <i class="fa-solid fa-medal"></i>
+          <span class="text-lg">Pencapaian Saya</span>
+          <!-- <button class="btn btn-ghost btn-sm btn-circle">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </button> -->
+          <span></span>
+          </>
       </li>
       <li>
         <a class="btn btn-xl justify-between w-full bg-base-200 rounded-full" href="https://pianndi.github.io/tikus"
           target="_blank" data-theme="light">
           <i class="fa-solid fa-gamepad"></i>
           <span class="text-lg">Pukul Tikus Nackal🔨</span>
-          <button class="btn btn-ghost btn-sm btn-circle">
+          <!-- <button class="btn btn-ghost btn-sm btn-circle">
             <i class="fa-solid fa-ellipsis-vertical"></i>
-          </button>
+          </button> -->
+          <span></span>
         </a>
       </li>
     </ul>
 
   </div>
-  <script>
-    const light = {
-      x: null,
-      y: null,
-      size: 300
+  <script src="./js/script.js"></script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Alviandi Siswo Hartanto",
+      "jobTitle": "Fullstack Web Developer & Video Editor",
+      "url": "https://pianndi.github.io/",
+      "sameAs": [
+        "https://tiktok.com/@pianndi",
+        "https://instagram.com/pianndi",
+        "https://youtube.com/@pianndi",
+        "https://github.com/pianndi",
+        "https://t.me/alphiandiwastaken"
+      ]
     }
-    const rains = [
-      {
-        x: 200,
-        y: 0,
-        size: 20
-      }]
-    const canvas = document.getElementById('canvas')
-    let ctx = canvas.getContext('2d')
-    function resizeCanvas() {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
-      ctx = canvas.getContext('2d')
-      ctx.strokeStyle = 'rgba(255,255,255,0.2)'
-      ctx.lineWidth = 2
-    }
-    resizeCanvas()
-    rains.push(...Array(20).fill(0).map(() => ({
-      x: random(0, canvas.width),
-      y: random(0, canvas.height),
-      size: random(10, 20)
-    })))
-    window.addEventListener('resize', resizeCanvas)
-    function random(min, max) {
-      return Math.round(Math.random() * (max - min) + min)
-    }
-    let rainCooldown = 0
-    let lastTime = performance.now()
-    function draw() {
-      const currentTime = performance.now()
-      const deltaTime = currentTime - lastTime
-      lastTime = currentTime
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      rains.forEach((rain, i) => {
-        ctx.beginPath()
-        rain.y += 1 * (deltaTime / 20)
-        ctx.moveTo(rain.x, rain.y)
-        ctx.lineTo(rain.x, rain.y - rain.size)
-        ctx.stroke()
-        if (rain.y > canvas.height) {
-          rains.splice(i, 1)
-        }
-      })
-      rainCooldown += deltaTime
-      if (rainCooldown > 400 * (800 / canvas.width)) {
-        rains.push({
-          x: random(0, canvas.width),
-          y: 0,
-          size: random(10, 20)
-        })
-        rainCooldown = 0
-      }
-      if (light.x !== null || light.y !== null) {
-        ctx.save()
-        ctx.globalCompositeOperation = 'lighter';
-        const gradient = ctx.createRadialGradient(light.x, light.y, 0, light.x, light.y, light.size)
-        gradient.addColorStop(0, 'rgba(255,255,0,0.1)')
-        gradient.addColorStop(1, 'rgba(255,255,0,0)')
-        ctx.fillStyle = gradient
-        ctx.beginPath()
-        ctx.arc(light.x, light.y, light.size, 0, Math.PI * 2)
-        ctx.fill()
-        ctx.restore()
-
-      }
-      requestAnimationFrame(draw)
-    }
-    draw()
-    window.addEventListener('mousemove', (e) => {
-      const x = e.clientX
-      const y = e.clientY
-      light.x = x
-      light.y = y
-    })
-    document.querySelectorAll('#socials a,.btn:has(.hidden)').forEach(el => {
-      tippy(el, {
-        content: el.querySelector('.hidden').innerText,
-        theme: 'dark',
-        placement: 'top',
-        arrow: true,
-        delay: [0, 100],
-        duration: [200, 100],
-        animation: 'scale',
-        trigger: 'mouseenter focus',
-        onShow(instance) {
-          instance.setProps({ delay: [0, 0] })
-        },
-        onHide(instance) {
-          instance.setProps({ delay: [0, 100] })
-        }
-      })
-    })
-    function copy_link() {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-          document.getElementById('copy_button').innerHTML = '<i class="fa-solid fa-check"></i>'
-          document.querySelector('#copy_button + span').innerText = 'Tautan disalin!'
-          setTimeout(() => {
-            document.getElementById('copy_button').innerHTML = '<i class="fa-solid fa-link"></i>'
-            document.querySelector('#copy_button + span').innerText = 'Salin Tautan'
-          }, 1000)
-        }).catch(err => {
-          Swal.fire({
-            toast: true,
-            icon: 'error',
-            position: 'top-end',
-            title: 'Gagal menyalin!',
-            showConfirmButton: false,
-            showCloseButton: true,
-            timer: 1500
-          })
-        })
-      } else {
-        const tempInput = document.createElement('input')
-        tempInput.value = window.location.href
-        document.body.appendChild(tempInput)
-        tempInput.select()
-        try {
-          document.execCommand('copy')
-          document.getElementById('copy_button').innerHTML = '<i class="fa-solid fa-check"></i>'
-          document.querySelector('#copy_button + span').innerText = 'Tautan disalin!'
-          setTimeout(() => {
-            document.getElementById('copy_button').innerHTML = '<i class="fa-solid fa-link"></i>'
-            document.querySelector('#copy_button + span').innerText = 'Salin Tautan'
-          }, 1000)
-        } catch (err) {
-          Swal.fire({
-            toast: true,
-            icon: 'error',
-            position: 'top-end',
-            title: 'Gagal menyalin!',
-            showConfirmButton: false,
-            showCloseButton: true,
-            timer: 1500
-          })
-        }
-        document.body.removeChild(tempInput)
-      }
-    }
-    if (!navigator?.share) {
-      document.getElementById('share_button').style.display = 'none'
-    }
-    function share_another() {
-      navigator.share({
-        title: document.title,
-        url: window.location.href
-      })
-        .then(() => {
-          console.log('Berhasil dibagikan!')
-        })
-    }
-    function changePicture() {
-      PowerGlitch.glitch('#profile', {
-        playMode: 'manual',
-        timing: {
-          duration: random(500, 1000)
-        }
-
-      }).startGlitch()
-      let gambar = 'https://avatars.githubusercontent.com/u/119086276?v=4'
-      let gambarEl = document.querySelector('#profile img')
-      gambarEl.src = gambar == gambarEl.src ? 'badut.png' : gambar
-      setTimeout(changePicture, random(4000, 7000))
-
-    }
-    setTimeout(changePicture, random(4000, 7000))
-  </script>
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,24 @@
+@import "tailwindcss" source(none);
+@source "./*.{html,js}";
+@plugin "daisyui";
+
+:root:has(input.theme-controller[value=mytheme]:checked),
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-base-100: rgb(0, 6, 39);
+  /* Add other CSS variables for your custom theme here */
+}
+
+.icon {
+  mask-size: 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  width: 24px;
+  height: 24px;
+}
+
+.hidden {
+  visibility: hidden !important;
+  position: absolute !important;
+}

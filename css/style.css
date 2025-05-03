@@ -1,0 +1,21 @@
+:root:has(input.theme-controller[value=mytheme]:checked),
+[data-theme="dark"] {
+  /* mytheme is the name of the custom theme */
+  color-scheme: dark;
+  --color-base-100: rgb(0, 6, 39);
+  /* ...rest of CSS variables like above example */
+}
+
+.icon {
+  mask-size: 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  width: 24px;
+  height: 24px;
+}
+
+.hidden {
+  visibility: hidden !important;
+  position: absolute !important;
+}
