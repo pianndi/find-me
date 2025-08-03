@@ -3,7 +3,7 @@ const light = {
   y: null,
   size: 300
 }
-const htmlTagIcon = createImage('../images/html-tag-icon.svg')
+const htmlTagIcon = createImage('./images/html-tag-icon.svg')
 const rains = [
   {
     x: 200,
