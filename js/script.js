@@ -3,12 +3,21 @@ const light = {
   y: null,
   size: 300
 }
+const htmlTagIcon = createImage('../images/html-tag-icon.svg')
 const rains = [
   {
     x: 200,
     y: 0,
-    size: 20
+    size: 20,
+    img: htmlTagIcon
   }]
+function createImage(src) {
+  const image = (new Image())
+  image.src = src
+  return image
+}
+
+
 const canvas = document.getElementById('canvas')
 let ctx = canvas.getContext('2d')
 function resizeCanvas() {
@@ -22,7 +31,8 @@ resizeCanvas()
 rains.push(...Array(20).fill(0).map(() => ({
   x: random(0, canvas.width),
   y: random(0, canvas.height),
-  size: random(10, 20)
+  size: random(10, 20),
+  img: htmlTagIcon
 })))
 window.addEventListener('resize', resizeCanvas)
 function random(min, max) {
@@ -38,10 +48,20 @@ function draw() {
   rains.forEach((rain, i) => {
     ctx.beginPath()
     rain.y += 1 * (deltaTime / 20)
-    ctx.moveTo(rain.x, rain.y)
-    ctx.lineTo(rain.x, rain.y - rain.size)
-    ctx.stroke()
-    if (rain.y > canvas.height) {
+    // ctx.moveTo(rain.x, rain.y)
+    // ctx.lineTo(rain.x, rain.y - rain.size)
+    // ctx.stroke()
+    // Draw the image with a shadow and slight rotation for style
+    ctx.save()
+    ctx.globalAlpha = 0.12
+    ctx.translate(rain.x + 15, rain.y - 15)
+    ctx.rotate(Math.sin(rain.y / 40) * 0.4)
+    ctx.drawImage(rain.img, -15, -15, 25, 25)
+    ctx.restore()
+
+  })
+  rains.forEach((rain, i) => {
+    if (rain.y - 30 > canvas.height) {
       rains.splice(i, 1)
     }
   })
@@ -50,7 +70,8 @@ function draw() {
     rains.push({
       x: random(0, canvas.width),
       y: 0,
-      size: random(10, 20)
+      size: random(10, 20),
+      img: htmlTagIcon
     })
     rainCooldown = 0
   }
@@ -76,7 +97,7 @@ window.addEventListener('mousemove', (e) => {
   light.x = x
   light.y = y
 })
-document.querySelectorAll('#socials a,.btn:has(.hidden)').forEach(el => {
+document.querySelectorAll('#socials a,.social-media-button:has(.hidden)').forEach(el => {
   tippy(el, {
     content: el.querySelector('.hidden').innerText,
     theme: 'dark',
@@ -150,7 +171,6 @@ function share_another() {
     url: window.location.href
   })
     .then(() => {
-      console.log('Berhasil dibagikan!')
     })
 }
 function changePicture() {
@@ -161,18 +181,20 @@ function changePicture() {
     }
 
   }).startGlitch()
+  function onlyImage(img) {
+    const gambar = img.split('/')
+
+    return gambar[gambar.length - 1]
+  }
   let gambar = './images/alviandi-profile-picture.webp'
   let gambarEl = document.querySelector('#profile img')
-  gambarEl.src = gambar == gambarEl.src ? './images/pian-badut.webp' : gambar
+
+  gambarEl.src = onlyImage(gambar) == onlyImage(gambarEl.src) ? './images/pian-lks.webp' : gambar
   setTimeout(changePicture, random(4000, 7000))
 
 }
 setTimeout(changePicture, random(4000, 7000))
 
-function typeNameOrNickname() {
-
-
-}
 const name = document.querySelector('#name')
 const nickname = document.querySelector('#nickname')
 const nameText = name.innerText

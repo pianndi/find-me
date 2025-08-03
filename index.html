@@ -31,8 +31,8 @@
   <!-- libs -->
   <script src="./js/powerglitch.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" /> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -42,10 +42,11 @@
 </head>
 
 <body class="text-center">
-  <canvas id="canvas" class="absolute -z-99"></canvas>
-  <label for="share" class="fixed btn btn-lg btn-circle btn-neutral bottom-6 right-6 z-99"><i
-      class="fa-solid fa-share-nodes"></i><span class="hidden">Bagikan</span>
-  </label>
+  <div class="h-[100dvh] overflow-hidden absolute left-0 top-0 right-0 bottom-0 -z-99">
+
+    <canvas id="canvas"></canvas>
+  </div>
+
   <!-- The button to open modal -->
   <input type="checkbox" id="share" class="modal-toggle" />
   <div class="modal" role="dialog" aria-hidden="false">
@@ -110,61 +111,58 @@
         <img src="./images/juara-satu-lks-web-provinsi-jawa-tengah-2025.webp" loading="lazy"
           title="Juara 1 lks web provinsi jawa tengah 2025" alt="Juara 1 lks web provinsi jawa tengah 2025">
       </div>
-      <ul class="list-disc list-inside mt-4 text-left">
-        <li>🥇 Juara 1 LKS Web Technologies Provinsi Jawa Tengah 2025</li>
-        <li>🥇 Juara 1 LKS Web Technologies Kabupaten Demak 2025</li>
-        <li>🥈 Juara 2 LKS Web Technologies Provinsi Jawa Tengah 2024</li>
-        <li>🥇 Juara 1 LKS Web Technologies Kabupaten Demak 2024</li>
+      <ul class="list-none mt-4 text-left">
+        <li>🥉 <b>Juara 3</b> LKS Web Technologies Nasional 2025</li>
+        <li>🥇 <b>Juara 1</b> LKS Web Technologies Provinsi Jawa Tengah 2025</li>
+        <li>🥇 <b>Juara 1</b> LKS Web Technologies Kabupaten Demak 2025</li>
+        <li>🥈 <b>Juara 2</b> LKS Web Technologies Provinsi Jawa Tengah 2024</li>
+        <li>🥇 <b>Juara 1</b> LKS Web Technologies Kabupaten Demak 2024</li>
       </ul>
     </div>
     <label class="modal-backdrop" for="achievements-modal-toggle">Close</label>
   </div>
   <div class="container relative max-w-lg mx-auto flex flex-col items-center py-12 gap-6 text-center">
     <div class="flex flex-col gap-2 items-center">
-      <label for="share" class="avatar cursor-pointer" id="profile">
+      <label for="share" class="avatar cursor-pointer hover:scale-105 transition-all" id="profile">
         <div class="w-28 rounded-full">
           <img src="./images/alviandi-profile-picture.webp" loading="lazy" alt="Alviandi Siswo Hartanto Profile Picture"
             title="Alviandi Siswo Hartanto Profile Picture" class="rounded">
         </div>
       </label>
       <div>
-        <h1 class="font-bold text-2xl"><span id="name">Alviandi Siswo Hartanto</span>&nbsp;<span
+        <h1 class="font-bold text-2xl px-4"><span id="name">Alviandi Siswo Hartanto</span>&nbsp;<span
             id="nickname">Piandi</span></h1>
-        <p>Fullstack Web Developer & Video Editor </p>
+        <p class="px-4">Fullstack Web Developer & Video Editor </p>
       </div>
     </div>
     <ul class="flex gap-4 flex-wrap justify-center px-4" id="socials">
       <li>
-        <a href="https://tiktok.com/@pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg"
-          title="Alviandi di Tiktok">
+        <a href="https://tiktok.com/@pianndi" target="_blank" class="social-media-button" title="Alviandi di Tiktok">
           <i class="fa-brands fa-tiktok"></i>
           <span class="hidden">Piandi di Tiktok</span>
         </a>
       </li>
       <li>
-        <a href="https://instagram.com/pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg"
+        <a href="https://instagram.com/pianndi" target="_blank" class="social-media-button"
           title="Alviandi di Instagram">
           <i class="fa-brands fa-instagram"></i>
           <span class="hidden">Piandi di Instagram</span>
         </a>
       </li>
       <li>
-        <a href="https://youtube.com/@pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg"
-          title="Alviandi di Youtube">
+        <a href="https://youtube.com/@pianndi" target="_blank" class="social-media-button" title="Alviandi di Youtube">
           <i class="fa-brands fa-youtube"></i>
           <span class="hidden">Piandi di Youtube</span>
         </a>
       </li>
       <li>
-        <a href="https://github.com/pianndi" target="_blank" class="btn btn-circle btn-outline btn-lg"
-          title="Piandi di Github">
+        <a href="https://github.com/pianndi" target="_blank" class="social-media-button" title="Piandi di Github">
           <i class="fa-brands fa-github"></i>
           <span class="hidden">Piandi di Github</span>
         </a>
       </li>
       <li>
-        <a href="https://t.me/alphiandiwastaken" target="_blank" class="btn btn-circle btn-outline btn-lg"
-          title="Hubungi Alviandi">
+        <a href="https://t.me/alphiandiwastaken" target="_blank" class="social-media-button" title="Hubungi Alviandi">
           <i class="fa-brands fa-telegram"></i>
           <span class="hidden">Hubungi di Telegram</span>
         </a>
@@ -172,8 +170,8 @@
     </ul>
     <ul class="flex flex-col gap-4 w-full px-4">
       <li>
-        <a class="btn btn-xl justify-between w-full bg-base-200 rounded-full" href="https://pianndi.github.io/"
-          target="_blank" title="Portofolio Alviandi Siswo Hartanto | Piandi" data-theme="light">
+        <a class="my-link-button" href="https://pianndi.github.io/" target="_blank"
+          title="Portofolio Alviandi Siswo Hartanto | Piandi" data-theme="light">
           <i class="fa-solid fa-user"></i>
           <span class="text-lg">Portofolio Saya</span>
           <!-- <button class="btn btn-ghost btn-sm btn-circle">
@@ -182,19 +180,24 @@
           <span></span>
         </a>
       </li>
-      <li>
-        <label for="achievements-modal" class="btn btn-xl justify-between w-full bg-base-200 rounded-full"
-          target="_blank" data-theme="light">
+      <li class="relative">
+        <div class="popup-image-button">
+          <img src="./images/pian-juara-3-bg.webp" loading="lazy" alt="Pian LKS Nasional Juara 3" class="h-full">
+        </div>
+        <label for="achievements-modal" class="my-link-button relative" target="_blank" data-theme="light">
           <i class="fa-solid fa-medal"></i>
           <span class="text-lg">Pencapaian Saya</span>
           <!-- <button class="btn btn-ghost btn-sm btn-circle">
             <i class="fa-solid fa-ellipsis-vertical"></i>
           </button> -->
           <span></span>
-          </>
+        </label>
+        <div class="popup-image-button">
+          <img src="./images/pian-juara-3-fg.webp" loading="lazy" alt="Pian LKS Nasional Juara 3 Medali" class="h-full">
+        </div>
       </li>
       <li>
-        <a class="btn btn-xl justify-between w-full bg-base-200 rounded-full" href="https://pianndi.github.io/tikus"
+        <a class="my-link-button" href="https://pianndi.github.io/tikus"
           title="Game Pukul Tikus yang dibuat oleh Alviandi" target="_blank" data-theme="light">
           <i class="fa-solid fa-gamepad"></i>
           <span class="text-lg">Pukul Tikus Nackal🔨</span>
@@ -207,6 +210,7 @@
     </ul>
 
   </div>
+
   <script src="./js/script.js"></script>
   <script type="application/ld+json">
     {
@@ -224,6 +228,10 @@
       ]
     }
     </script>
+  <label for="share" class="fixed social-media-button bg-blue-950 bottom-6 right-6 z-[2147483647]">
+    <i class="fa-solid fa-share-nodes"></i>
+    <span class="hidden">Bagikan</span>
+  </label>
 </body>
 
 </html>

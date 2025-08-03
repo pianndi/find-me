@@ -1,6 +1,45 @@
-@import "tailwindcss" source(none);
+@import "tailwindcss";
 @source "./*.{html,js}";
 @plugin "daisyui";
+
+/* html,
+body {
+  isolation: isolate;
+  /* membuat root stacking context baru */
+/* } */
+
+*/ label[for="share"] {
+  position: fixed;
+  z-index: 2147483647;
+  /* nilai tertinggi */
+}
+
+@layer components {
+  .social-media-button {
+    @apply btn btn-circle btn-outline btn-lg hover:text-[#f22744] hover:text-4xl active:text-[#f22744] active:text-4xl transition-all;
+  }
+
+  .my-link-button {
+    @apply btn btn-xl justify-between w-full bg-base-200 rounded-full transition-all hover:scale-105 hover:-rotate-1 active:scale-105 active:-rotate-1;
+  }
+
+  .popup-image-button {
+    @apply absolute bottom-0 w-full h-64 overflow-hidden pointer-events-none;
+  }
+
+  .popup-image-button img {
+    @apply absolute bottom-[-150%] pointer-events-none opacity-0 w-max transition-all left-[50%] translate-x-[-50%];
+  }
+
+  li:hover .popup-image-button img {
+    @apply bottom-0 opacity-100;
+  }
+
+  li:nth-child(even) .my-link-button {
+    @apply hover:rotate-1;
+  }
+}
+
 
 :root:has(input.theme-controller[value=mytheme]:checked),
 [data-theme="dark"] {
